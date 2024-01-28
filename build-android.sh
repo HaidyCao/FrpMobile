@@ -15,6 +15,8 @@ git clone https://github.com/fatedier/frp.git
 cd frp || exit 1
 git checkout ${TAG}
 
+rm -v -rf bin
+
 echo "Build for arm64"
 
 export CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/darwin-x86_64/bin/aarch64-linux-android21-clang
