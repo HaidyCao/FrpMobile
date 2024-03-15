@@ -26,20 +26,20 @@ env CGO_ENABLED=0 GOOS=android GOARCH=arm64 go build -trimpath -ldflags "-s -w" 
 echo "Build for amd64"
 
 export CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/darwin-x86_64/bin/x86_64-linux-android21-clang
-env CGO_ENABLED=0 GOOS=android GOARCH=amd64 go build -trimpath -ldflags "-s -w" -tags frpc -o bin/x86_64/frpc ./cmd/frpc
-env CGO_ENABLED=0 GOOS=android GOARCH=amd64 go build -trimpath -ldflags "-s -w" -tags frps -o bin/x86_64/frps ./cmd/frps
+env CGO_ENABLED=1 GOOS=android GOARCH=amd64 go build -trimpath -ldflags "-s -w" -tags frpc -o bin/x86_64/frpc ./cmd/frpc
+env CGO_ENABLED=1 GOOS=android GOARCH=amd64 go build -trimpath -ldflags "-s -w" -tags frps -o bin/x86_64/frps ./cmd/frps
 
 echo "Build for arm"
 
 export CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/darwin-x86_64/bin/armv7a-linux-androideabi16-clang
-env CGO_ENABLED=0 GOOS=android GOARCH=arm GOARM=7 go build -trimpath -ldflags "-s -w" -tags frpc -o bin/arm/frpc ./cmd/frpc
-env CGO_ENABLED=0 GOOS=android GOARCH=arm GOARM=7 go build -trimpath -ldflags "-s -w" -tags frps -o bin/arm/frps ./cmd/frps
+env CGO_ENABLED=1 GOOS=android GOARCH=arm GOARM=7 go build -trimpath -ldflags "-s -w" -tags frpc -o bin/arm/frpc ./cmd/frpc
+env CGO_ENABLED=1 GOOS=android GOARCH=arm GOARM=7 go build -trimpath -ldflags "-s -w" -tags frps -o bin/arm/frps ./cmd/frps
 
 echo "Build for x86"
 
 export CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/darwin-x86_64/bin/i686-linux-android16-clang
-env CGO_ENABLED=0 GOOS=android GOARCH=386 go build -trimpath -ldflags "-s -w" -tags frpc -o bin/x86/frpc ./cmd/frpc
-env CGO_ENABLED=0 GOOS=android GOARCH=386 go build -trimpath -ldflags "-s -w" -tags frps -o bin/x86/frps ./cmd/frps
+env CGO_ENABLED=1 GOOS=android GOARCH=386 go build -trimpath -ldflags "-s -w" -tags frpc -o bin/x86/frpc ./cmd/frpc
+env CGO_ENABLED=1 GOOS=android GOARCH=386 go build -trimpath -ldflags "-s -w" -tags frps -o bin/x86/frps ./cmd/frps
 
 upx --best bin/arm64/frpc -o bin/arm64/frpc_upx || cp -v bin/arm64/frpc bin/arm64/frpc_upx
 upx --best bin/arm64/frps -o bin/arm64/frps_upx || cp -v bin/arm64/frps bin/arm64/frps_upx
