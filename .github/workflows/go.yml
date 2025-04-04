@@ -33,7 +33,7 @@ jobs:
     #     sudo apt-get install -y upx
     - name: Get Tag
       id: get_tag
-      run: echo "name=VERSION::$(cat frpVersion.txt)" >> $GITHUB_OUTPUT
+      run: echo "::set-output name=VERSION::$(cat version.txt)"
 
     - name: Build
       run: |
@@ -66,7 +66,7 @@ jobs:
         for file in *; do
           if [[ -f ${file} ]]; then
               echo "Uploading $file"
-              gh release upload "$(cat ../../../frpVersion.txt)" "$file" --repo ${{ github.repository }}
+              gh release upload "$VERSION" "$file" --repo ${{ github.repository }}
           fi
         done
     - name: Bin Files Hash
