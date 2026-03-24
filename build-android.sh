@@ -30,6 +30,18 @@ rm -v -rf bin
 
 echo "Build for arm64"
 
+cd web/frpc
+npm install
+npm run build
+
+cd -
+
+cd web/frps
+npm install
+npm run build
+
+cd -
+
 export CC=${ANDROID_NDK_HOME}/toolchains/llvm/prebuilt/${PLATFORM}-x86_64/bin/aarch64-linux-android21-clang
 env CGO_ENABLED=0 GOOS=android GOARCH=arm64 go build -trimpath -ldflags "-s -w" -tags frpc -o bin/arm64/frpc ./cmd/frpc
 env CGO_ENABLED=0 GOOS=android GOARCH=arm64 go build -trimpath -ldflags "-s -w" -tags frps -o bin/arm64/frps ./cmd/frps
