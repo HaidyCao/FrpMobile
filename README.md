@@ -1,9 +1,11 @@
+
+
 # FrpMobile
 
 ## FRP Download
 FRP for Android download [Google Play](https://play.google.com/store/apps/details?id=com.tools.frp). The app download from `Google Play` cannot choose FRP verison anymore.
 
-FRP for Android download [Github](https://github.com/HaidyCao/frp/releases). The apk download form `Github` can choose or download frp version you need.
+FRP for Android download [Github](https://github.com/HaidyCao/frp/releases). The apk download from `Github` can choose or download frp version you need.
 
 ## FRP executable file build
 `build-android.sh` is a bash script to build frp executable file for android.
@@ -24,4 +26,3 @@ Or your system no `upx` command, the script will ignore
     # or
     export ANDROID_NDK_HOME=/path/to/your/ndk/home
     ./build-android.sh [frp tag]
-
